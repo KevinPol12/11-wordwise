@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function PageNav() {
   /*Components go in a separate folder than pages for good practice*/
@@ -6,13 +6,14 @@ export default function PageNav() {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          {/*NavLink return an "active" class for css formatting*/}
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/pricing">Pricing</Link>
+          <NavLink to="/pricing">Pricing</NavLink>
         </li>
         <li>
-          <Link to="/product">Product</Link>
+          <NavLink to="/product">Product</NavLink>
         </li>
       </ul>
     </nav>
