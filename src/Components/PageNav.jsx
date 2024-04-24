@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
+import styles from "./PageNav.module.css";
 
 export default function PageNav() {
   /*Components go in a separate folder than pages for good practice*/
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul>
         <li>
           {/*NavLink return an "active" class for css formatting*/}
