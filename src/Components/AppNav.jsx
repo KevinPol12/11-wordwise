@@ -6,10 +6,10 @@ function AppNav() {
     <nav className={styles.nav}>
       <ul>
         <li>
-          <NavLink>Cities</NavLink>
+          <NavLink to="/app/cities">Cities</NavLink>
         </li>
         <li>
-          <NavLink>Countries</NavLink>
+          <NavLink to="/app/countries">Countries</NavLink>
         </li>
       </ul>
     </nav>
