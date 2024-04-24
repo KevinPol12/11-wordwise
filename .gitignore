@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 #ignoring the "starte" folder
-/starter/
+#/starter/
