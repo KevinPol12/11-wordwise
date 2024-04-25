@@ -10,11 +10,10 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  {
-    /* Using REACT router URL params
+  /* Using REACT router URL params
   Step 3/3: Here using the "useParams" we store the URLparams into a variable
   then destructure it to use within the code */
-  }
+
   const URLparams = useParams();
   const { id } = URLparams;
 

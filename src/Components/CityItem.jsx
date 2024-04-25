@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
 
 function CityItem({ city }) {
-  const { cityName, emoji, date, id } = city;
+  const { cityName, emoji, date, id, position } = city;
 
   const formatDate = (date) =>
     new Intl.DateTimeFormat("en", {
@@ -15,10 +15,10 @@ function CityItem({ city }) {
 
   return (
     <li>
-      {/* Using REACT router URL params
-      Step 2/3: This list is rendered within /cities path, so the to="" should
-      just add to the URL what ever we put in it and trigger the route call prev defined */}
-      <Link className={styles.cityItem} to={`${id}`}>
+      <Link
+        className={styles.cityItem}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+      >
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <span className={styles.date}>({formatDate(date)})</span>

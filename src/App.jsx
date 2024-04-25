@@ -49,9 +49,6 @@ export default function App() {
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
-          {/* Using REACT router URL params
-          Step 1/3: Here we define the URL param name we should receive to 
-          display the listed component */}
           <Route path="cities/:id" element={<City />} />
           <Route
             path="countries"
