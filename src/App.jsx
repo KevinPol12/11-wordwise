@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Product from "./pages/Product";
 import Homepage from "./pages/Homepage";
@@ -42,10 +42,16 @@ export default function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route
+          {/* <Route
             index
             element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          /> */}
+          {/*With the code above we were defining a default route to go 
+          but it wasnt selecting the active route, however, by redirecting 
+          the index or default route with <Navigate/> it makes sure not to 
+          only display the URL and the content - but also select the defined 
+          route as the selected one even tho is was defaulted.*/}
+          <Route index element={<Navigate replace to="cities" />} />
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
