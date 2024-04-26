@@ -3,6 +3,7 @@ import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import { useCities } from "../context/CitiesContext";
+import BackButton from "./BackButton";
 
 export default function CountryList() {
   const { cities, isLoading } = useCities();
@@ -21,10 +22,15 @@ export default function CountryList() {
   }, []);
 
   return (
-    <ul className={styles.countryList}>
-      {countries?.map((country, i) => (
-        <CountryItem key={i} country={country} />
-      ))}
-    </ul>
+    <>
+      <ul className={styles.countryList}>
+        {countries?.map((country, i) => (
+          <CountryItem key={i} country={country} />
+        ))}
+      </ul>
+      <div>
+        <BackButton />
+      </div>
+    </>
   );
 }
