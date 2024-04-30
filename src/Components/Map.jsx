@@ -9,7 +9,7 @@ import Button from "./Button";
 import MapMarker from "./MapMarker";
 
 function Map() {
-  const { mapPosition, setMapPosition, setCurrentCity, cities } = useCities();
+  const { mapPosition, dispatch, cities } = useCities();
 
   const [newLat, newLng] = useUrlPosition();
   const newPosition = [newLat || mapPosition[0], newLng || mapPosition[1]];
@@ -17,12 +17,17 @@ function Map() {
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
+    setPosition: setGeoLocationPosition,
     getPosition,
   } = useGeolocation();
 
   useEffect(
     function () {
-      if (newLat && newLng) setMapPosition([newLat, newLng]);
+      if (newLat && newLng) {
+        dispatch({ type: "setMapPosition", payload: [newLat, newLng] });
+        //  setMapPosition([newLat, newLng]);
+        setGeoLocationPosition("");
+      }
     },
     [newLat, newLng]
   );
@@ -31,9 +36,11 @@ function Map() {
     function () {
       const { lat, lng } = geoLocationPosition;
       if (geoLocationPosition.lat != null) {
-        setMapPosition([lat, lng]);
+        dispatch({ type: "setMapPosition", payload: [lat, lng] });
+        // setMapPosition([lat, lng]);
         navigate("cities");
-        setCurrentCity("");
+        dispatch({ type: "city/loaded", payload: "" });
+        // setCurrentCity("");
       }
     },
     [geoLocationPosition]
